@@ -49,17 +49,38 @@ const imgCta = document.querySelector('#cta-img');
 const headingFour = document.querySelectorAll('.text-content h4');
 const pargraphContent = document.querySelectorAll('.text-content p');
 const middleImage = document.querySelector('#middle-img');
-const contactHeading = document.querySelector('contact h4');
-const contactText = document.querySelectorAll('contact p');
+const contactHeading = document.querySelector('.contact h4');
+const contactText = document.querySelectorAll('.contact p');
 const footerText = document.querySelector('footer p')
+
 console.log(navBar);
 //Update the HTML with the JSON data
+
+// assuming nav bar and heading have the same length... except for the image of course
+const navHeadings = siteContent['nav'];
+const navKeys = Object.keys(navHeadings);
+for (let i = 0; i < navKeys.length - 1; i++) {
+  navBar[i].textContent = navHeadings[navKeys[i]];
+}
 headingOne.textContent = siteContent['cta']['h1'];
 buttonText.textContent = siteContent['cta']['button'];
 imgCta.setAttribute('src', siteContent['cta']['img-src']);
+
 headingFour[0].textContent = siteContent['main-content']['features-h4'];
+pargraphContent[0].textContent = siteContent['main-content']['features-content'];
 headingFour[1].textContent = siteContent['main-content']['about-h4'];
+pargraphContent[1].textContent = siteContent['main-content']['about-content'];
+
+middleImage.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
 headingFour[2].textContent = siteContent['main-content']['services-h4'];
+pargraphContent[2].textContent = siteContent['main-content']['services-content'];
 headingFour[3].textContent = siteContent['main-content']['product-h4'];
-
-
+pargraphContent[3].textContent = siteContent['main-content']['product-content'];
+headingFour[4].textContent = siteContent['main-content']['vision-h4'];
+pargraphContent[4].textContent = siteContent['main-content']['vision-content'];
+contactHeading.textContent = siteContent['contact']['contact-h4'];
+contactText[0].textContent = siteContent['contact']['address'];
+contactText[1].textContent = siteContent['contact']['phone'];
+contactText[2].textContent = siteContent['contact']['email'];
+footerText.textContent = siteContent['footer']['copyright']
