@@ -39,4 +39,27 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+//Create selectors
+const navBar = document.querySelectorAll('a');
+const headingOne = document.querySelector('.cta-text h1');
+const buttonText = document.querySelector('button');
+const imgCta = document.querySelector('#cta-img');
+const headingFour = document.querySelectorAll('.text-content h4');
+const pargraphContent = document.querySelectorAll('.text-content p');
+const middleImage = document.querySelector('#middle-img');
+const contactHeading = document.querySelector('contact h4');
+const contactText = document.querySelectorAll('contact p');
+const footerText = document.querySelector('footer p')
+console.log(navBar);
+//Update the HTML with the JSON data
+headingOne.textContent = siteContent['cta']['h1'];
+buttonText.textContent = siteContent['cta']['button'];
+imgCta.setAttribute('src', siteContent['cta']['img-src']);
+headingFour[0].textContent = siteContent['main-content']['features-h4'];
+headingFour[1].textContent = siteContent['main-content']['about-h4'];
+headingFour[2].textContent = siteContent['main-content']['services-h4'];
+headingFour[3].textContent = siteContent['main-content']['product-h4'];
+
+
