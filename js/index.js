@@ -42,7 +42,8 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 //Create selectors
-const navBar = document.querySelectorAll('a');
+const navBarItems = document.querySelectorAll('a');
+const navBar = document.querySelector('.container nav')
 const headingOne = document.querySelector('.cta-text h1');
 const buttonText = document.querySelector('button');
 const imgCta = document.querySelector('#cta-img');
@@ -53,14 +54,14 @@ const contactHeading = document.querySelector('.contact h4');
 const contactText = document.querySelectorAll('.contact p');
 const footerText = document.querySelector('footer p')
 
-console.log(navBar);
+console.log(navBarItems);
 //Update the HTML with the JSON data
 
 // assuming nav bar and heading have the same length... except for the image of course
 const navHeadings = siteContent['nav'];
 const navKeys = Object.keys(navHeadings);
 for (let i = 0; i < navKeys.length - 1; i++) {
-  navBar[i].textContent = navHeadings[navKeys[i]];
+  navBarItems[i].textContent = navHeadings[navKeys[i]];
 }
 headingOne.textContent = siteContent['cta']['h1'];
 buttonText.textContent = siteContent['cta']['button'];
@@ -84,3 +85,15 @@ contactText[0].textContent = siteContent['contact']['address'];
 contactText[1].textContent = siteContent['contact']['phone'];
 contactText[2].textContent = siteContent['contact']['email'];
 footerText.textContent = siteContent['footer']['copyright']
+// add new content
+navBarItems.forEach( ink => ink.style.color = "green" );
+
+
+const newNavOne = document.createElement('a');
+const newNavTwo = document.createElement('a');
+newNavOne.textContent = 'Home';
+newNavOne.style.color = 'green'
+newNavTwo.textContent = 'Feedback';
+newNavTwo.style.color = 'green';
+navBar.prepend(newNavOne);
+navBar.appendChild(newNavTwo);
